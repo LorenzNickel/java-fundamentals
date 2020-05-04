@@ -63,6 +63,21 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T>, Seriali
     }
 
     /**
+     * Inserts an array of elements in the tree using the insert(T) method
+     *
+     * @param values array of elements which will be inserted
+     * @return true if all elements have been inserted, false if at least one element was not inserted
+     * successfully
+     */
+    public boolean insertAll(T... values) {
+        boolean result = true;
+        for (T value : values) {
+            result &= this.insert(value);
+        }
+        return result;
+    }
+
+    /**
      * Removes the element value from the tree
      *
      * @param value

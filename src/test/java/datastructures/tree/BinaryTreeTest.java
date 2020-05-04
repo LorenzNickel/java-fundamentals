@@ -16,6 +16,15 @@ public class BinaryTreeTest extends TestCase {
         assertFalse( tree.isEmpty() );
     }
 
+    public void testInsertAll() {
+        BinaryTree<Integer> tree = new BinaryTree<>();
+        assertTrue(tree.insertAll(1, 2, 3, 4, 5, 6, 7));
+        assertFalse(tree.insertAll(7, 8));
+        assertFalse(tree.insertAll(8));
+        assertTrue(tree.insertAll());
+        assertEquals(tree.size(), 8);
+    }
+
     public void testSize(){
         BinaryTree<Integer> tree = new BinaryTree<>();
 
@@ -41,13 +50,7 @@ public class BinaryTreeTest extends TestCase {
     public void testRemoveRight(){
         BinaryTree<Integer> tree = new BinaryTree<>();
 
-        tree.insert( 10 );
-        tree.insert( 5 );
-        tree.insert( 15 );
-        tree.insert( 20 );
-        tree.insert( 7 );
-        tree.insert( 6 );
-        tree.insert( 3 );
+        tree.insertAll(10, 5, 15, 20, 7, 6, 3);
 
         tree.remove( 15 );
         assertEquals( 6, tree.size() );
@@ -56,13 +59,7 @@ public class BinaryTreeTest extends TestCase {
     public void testRemoveLeft(){
         BinaryTree<Integer> tree = new BinaryTree<>();
 
-        tree.insert( 10 );
-        tree.insert( 5 );
-        tree.insert( 15 );
-        tree.insert( 20 );
-        tree.insert( 7 );
-        tree.insert( 6 );
-        tree.insert( 3 );
+        tree.insertAll(10, 5, 15, 20, 7, 6, 3);
 
         tree.remove( 7 );
         assertEquals( 6, tree.size() );
@@ -71,13 +68,7 @@ public class BinaryTreeTest extends TestCase {
     public void testRemoveBoth(){
         BinaryTree<Integer> tree = new BinaryTree<>();
 
-        tree.insert( 10 );
-        tree.insert( 5 );
-        tree.insert( 15 );
-        tree.insert( 20 );
-        tree.insert( 7 );
-        tree.insert( 6 );
-        tree.insert( 3 );
+        tree.insertAll(10, 5, 15, 20, 7, 6, 3);
 
         tree.remove( 10 );
         assertEquals( 6, tree.size() );
@@ -86,13 +77,7 @@ public class BinaryTreeTest extends TestCase {
     public void testMinimum(){
         BinaryTree<Integer> tree = new BinaryTree<>();
 
-        tree.insert( 10 );
-        tree.insert( 5 );
-        tree.insert( 15 );
-        tree.insert( 20 );
-        tree.insert( 7 );
-        tree.insert( 6 );
-        tree.insert( 3 );
+        tree.insertAll(10, 5, 15, 20, 7, 6, 3);
 
         assertEquals( (Integer) 3, tree.minimum() );
     }
