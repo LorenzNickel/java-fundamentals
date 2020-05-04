@@ -7,14 +7,14 @@ import junit.framework.TestCase;
  */
 public class InsertionSortTest extends TestCase {
 
-    public void testInsertionSort() {
-        Short[] array = new Short[]{ 3, 2, 5, 4, 1 };
+  public void testInsertionSort() {
+    Short[] array = new Short[]{3, 2, 5, 4, 1};
 
-        InsertionSort.insertionSort( array );
+    InsertionSort.insertionSort(array);
 
-        for ( int i = 0; i < 5; i++ ) {
-            assertEquals( i + 1, (short) array[i] );
-        }
+    for (int i = 0; i < 5; i++) {
+      assertEquals(i + 1, (short) array[i]);
     }
+  }
 
 }

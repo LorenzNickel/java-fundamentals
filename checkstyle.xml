@@ -221,7 +221,6 @@ by Max Vetrenko, Ruslan Diachenko, Roman Ivanov.
       <property name="allowSamelineMultipleAnnotations" value="true"/>
     </module>
     <module name="InvalidJavadocPosition"/>
-    <module name="JavadocTagContinuationIndentation"/>
     <module name="JavadocParagraph"/>
     <module name="AtclauseOrder">
       <property name="tagOrder" value="@param, @return, @throws, @deprecated"/>
