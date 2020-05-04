@@ -2,7 +2,7 @@ package datastructures.tree;
 
 
 import java.io.Serializable;
-import java.util.Iterator;
+import java.util.*;
 
 
 /**
@@ -36,6 +36,8 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T>, Seriali
      * @return true if an element was inserted.
      */
     public boolean insert( T value ) {
+        Objects.requireNonNull( value );
+
         if ( this.value == null ) {
             this.value = value;
             return true;
@@ -60,6 +62,22 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T>, Seriali
         }
 
         return true;
+    }
+
+    /**
+     * Inserts an array of elements in the tree using the insert(T) method
+     *
+     * @param values array of elements which will be inserted
+     * @return true if all elements have been inserted, false if at least one element was not inserted
+     * successfully
+     */
+    @SafeVarargs
+    public final boolean insertAll( T... values ) {
+        boolean result = true;
+        for ( T value : values ) {
+            result &= this.insert( value );
+        }
+        return result;
     }
 
     /**
@@ -149,6 +167,44 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T>, Seriali
     }
 
     public Iterator<T> iterator() {
-        return null;
+        return new BinaryTreeIterator( this );
+    }
+
+    private final class BinaryTreeIterator implements Iterator<T> {
+
+        private Stack<BinaryTree<T>> stack;
+
+        BinaryTreeIterator( BinaryTree<T> root ) {
+            stack = new Stack<>();
+
+            fillStack( root );
+        }
+
+        public boolean hasNext() {
+            return !stack.isEmpty();
+        }
+
+        public T next() {
+            if ( stack.isEmpty() ) {
+                throw new NoSuchElementException();
+            }
+
+            BinaryTree<T> tree = stack.pop();
+            T result = tree.value;
+
+            if ( tree.right != null ) {
+                tree = tree.right;
+
+                fillStack( tree );
+            }
+            return result;
+        }
+
+        private void fillStack( BinaryTree<T> tree ) {
+            while ( tree != null ) {
+                stack.push( tree );
+                tree = tree.left;
+            }
+        }
     }
 }

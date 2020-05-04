@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -164,27 +164,33 @@ implements java.lang.Iterable&lt;T&gt;, java.io.Serializable</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../datastructures/tree/BinaryTree.html#isEmpty--">isEmpty</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../datastructures/tree/BinaryTree.html#insertAll-T...-">insertAll</a></span>(<a href="../../datastructures/tree/BinaryTree.html" title="type parameter in BinaryTree">T</a>...&nbsp;values)</code>
+<div class="block">Inserts an array of elements in the tree using the insert(T) method</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../datastructures/tree/BinaryTree.html#isEmpty--">isEmpty</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.util.Iterator&lt;<a href="../../datastructures/tree/BinaryTree.html" title="type parameter in BinaryTree">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../datastructures/tree/BinaryTree.html#iterator--">iterator</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../datastructures/tree/BinaryTree.html" title="type parameter in BinaryTree">T</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../datastructures/tree/BinaryTree.html#minimum--">minimum</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../datastructures/tree/BinaryTree.html" title="type parameter in BinaryTree">T</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../datastructures/tree/BinaryTree.html#remove-T-">remove</a></span>(<a href="../../datastructures/tree/BinaryTree.html" title="type parameter in BinaryTree">T</a>&nbsp;value)</code>
 <div class="block">Removes the element value from the tree</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../datastructures/tree/BinaryTree.html#size--">size</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../datastructures/tree/BinaryTree.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -260,6 +266,25 @@ implements java.lang.Iterable&lt;T&gt;, java.io.Serializable</pre>
 <dd><code>value</code> - </dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if an element was inserted.</dd>
+</dl>
+</li>
+</ul>
+<a name="insertAll-java.lang.Comparable:A-">
+<!--   -->
+</a><a name="insertAll-T...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>insertAll</h4>
+<pre>public&nbsp;boolean&nbsp;insertAll(<a href="../../datastructures/tree/BinaryTree.html" title="type parameter in BinaryTree">T</a>...&nbsp;values)</pre>
+<div class="block">Inserts an array of elements in the tree using the insert(T) method</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>values</code> - array of elements which will be inserted</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if all elements have been inserted, false if at least one element was not inserted
+ successfully</dd>
 </dl>
 </li>
 </ul>

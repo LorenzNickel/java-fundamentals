@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="java-fundamentals" target="7" />
+      <module name="java-fundamentals" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
