@@ -47,4 +47,12 @@ public class LinearSearchTest extends TestCase {
     }
   }
 
+  public void testWithNullArray() {
+    try {
+      new LinearSearch<>(null);
+      fail();
+    } catch (IllegalArgumentException e) {
+    }
+  }
+
 }

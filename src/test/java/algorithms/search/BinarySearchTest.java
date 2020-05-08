@@ -46,4 +46,12 @@ public class BinarySearchTest extends TestCase {
     }
   }
 
+  public void testWithNullArray() {
+    try {
+      new BinarySearch<>(null);
+      fail();
+    } catch (IllegalArgumentException e) {
+    }
+  }
+
 }
