@@ -1,11 +1,14 @@
 algorithms.random
+algorithms.random.listshuffle
 algorithms.search
 algorithms.sort
 datastructures.heap
 datastructures.list
 datastructures.math
 datastructures.tree
+pattern.composite
 problems.coinsamount
 problems.coinsamount.impl
+problems.disctinctString
 problems.distinctString
 problems.distinctString.impl
