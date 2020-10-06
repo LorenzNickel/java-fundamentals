@@ -1,10 +1,10 @@
 pull_request_rules:
-  - name: automatic merge for master when reviewed and CI passes and has label
+  - name: automatic merge for master when reviewed by owner
     conditions:
       - status-success=continuous-integration/travis-ci/pr
-      - "#approved-reviews-by>=1"
+      - "status-success=ci/circleci: test"
+      - approved-reviews-by=LorenzNickel
       - base=master
-      - label=ready-to-merge
     actions:
       merge:
         method: rebase
@@ -21,9 +21,10 @@ pull_request_rules:
         message: This pull request is now in conflicts. Could you fix it? 🙏
   - name: automatic merge for Dependabot pull requests with label
     conditions:
-      - label=ready-to-merge
+      - approved-reviews-by=LorenzNickel
       - author~=^dependabot(|-preview)\[bot\]$
       - status-success=continuous-integration/travis-ci/pr
+      - "status-success=ci/circleci: test"
     actions:
       merge:
         method: rebase
