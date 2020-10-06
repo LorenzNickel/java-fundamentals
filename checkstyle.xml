@@ -158,16 +158,6 @@ by Max Vetrenko, Ruslan Diachenko, Roman Ivanov.
       <property name="option" value="nl"/>
     </module>
     <module name="NoFinalizer"/>
-    <module name="GenericWhitespace">
-      <message key="ws.followed"
-        value="GenericWhitespace ''{0}'' is followed by whitespace."/>
-      <message key="ws.preceded"
-        value="GenericWhitespace ''{0}'' is preceded with whitespace."/>
-      <message key="ws.illegalFollow"
-        value="GenericWhitespace ''{0}'' should followed by whitespace."/>
-      <message key="ws.notPreceded"
-        value="GenericWhitespace ''{0}'' is not preceded with whitespace."/>
-    </module>
     <module name="Indentation">
       <property name="basicOffset" value="2"/>
       <property name="braceAdjustment" value="0"/>
@@ -183,7 +173,6 @@ by Max Vetrenko, Ruslan Diachenko, Roman Ivanov.
         value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF, ANNOTATION_DEF, ANNOTATION_FIELD_DEF,
     PARAMETER_DEF, VARIABLE_DEF, METHOD_DEF"/>
     </module>
-    <module name="OverloadMethodsDeclarationOrder"/>
     <module name="VariableDeclarationUsageDistance"/>
     <module name="CustomImportOrder">
       <property name="sortImportsInGroupAlphabetically" value="true"/>
