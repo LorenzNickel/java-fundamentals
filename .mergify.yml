@@ -2,7 +2,6 @@ pull_request_rules:
   - name: automatic merge for master when reviewed by owner
     conditions:
       - status-success=continuous-integration/travis-ci/pr
-      - "status-success=ci/circleci: test"
       - approved-reviews-by=LorenzNickel
       - base=master
     actions:
