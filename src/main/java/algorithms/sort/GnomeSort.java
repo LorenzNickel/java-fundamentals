@@ -11,15 +11,20 @@ public class GnomeSort {
    * @param array
    * @param <T>
    */
-  public static <T extends Comparable<T>> void gnomeSort(T[] array){
+  public static <T extends Comparable<T>> void gnomeSort(T[] array) {
     int index = 0;
 
+    if (array.length <= 1) {
+      return;
+    }
+
     while (index < array.length) {
-      if (index == 0)
+      if (index == 0) {
         index++;
-      if (array[index].compareTo(array[index - 1]) >= 0)
+      }
+      if (array[index].compareTo(array[index - 1]) >= 0) {
         index++;
-      else {
+      } else {
         T temp;
         temp = array[index];
         array[index] = array[index - 1];
