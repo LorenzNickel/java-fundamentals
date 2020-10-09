@@ -19,34 +19,33 @@ import javafx.util.Pair;
  */
 public class Tableau {
 
-  private double[][] rows;
-  private final double[] cons;
+  private final double[] constraintResults; // b - vector
   private final int rowsAmount;
 
-  private double[] obj;
-  private int[] basis;
-  private double[] delta;
+  private double[] objectFunctionCoefficients;
+  private double[][] rows; // constraint coefficients
+  private int[] basis; // indices of the columns which are currently the base columns
+  private double[] delta; // delta values
 
-  public Tableau(double[] obj, double[][] rows, double[] cons) {
-    this.obj = obj;
+  public Tableau(double[] objectFunctionCoefficients, double[][] rows, double[] constraintResults) {
+    this.objectFunctionCoefficients = objectFunctionCoefficients;
     this.delta = new double[rows.length];
     this.rows = rows;
-    this.cons = cons;
+    this.constraintResults = constraintResults;
 
-    rowsAmount = obj.length;
+    rowsAmount = objectFunctionCoefficients.length;
   }
 
   /**
    * @return the calculated object value of the tableau
    */
   public double computeObjectValue() {
-    int lastPos = delta.length - 1;
     double result = 0;
 
     for (int i = 0; i < basis.length; i++) {
       // calculate object function result
       // basis array holds the values for function input
-      result += obj[basis[i]] * rows[i][lastPos];
+      result += objectFunctionCoefficients[basis[i]] * constraintResults[i];
     }
 
     return result;
@@ -83,7 +82,7 @@ public class Tableau {
       rows[row][i] /= e;
     }
 
-    cons[row] /= e;
+    constraintResults[row] /= e;
 
     for (int i = 0; i < rows.length; i++) {
       if (i == row) {
@@ -96,16 +95,16 @@ public class Tableau {
         rows[i][j] = rows[i][j] - d * rows[row][j];
       }
 
-      cons[i] = cons[i] - d * cons[row];
+      constraintResults[i] = constraintResults[i] - d * constraintResults[row];
     }
   }
 
   /**
-   * @return true if all b values are negative? idk
+   * @return true if at least one b value is positive
    */
   public boolean isFeasible() {
-    for (int i = 0; i < cons.length; i++) {
-      if (cons[i] >= 0) {
+    for (int i = 0; i < constraintResults.length; i++) {
+      if (constraintResults[i] >= 0) {
         return true;
       }
     }
@@ -128,7 +127,7 @@ public class Tableau {
             rows[rowIndex][colIndex];
       }
 
-      delta -= obj[colIndex];
+      delta -= objectFunctionCoefficients[colIndex];
       deltaValues.add(delta);
     }
 
@@ -161,7 +160,7 @@ public class Tableau {
       }
 
       if (oneIndex != -1 && zeroes == rows.length - 1) {
-        list.add(new Pair<>(oneIndex, obj[colIndex]));
+        list.add(new Pair<>(oneIndex, objectFunctionCoefficients[colIndex]));
       }
     }
 
@@ -185,7 +184,7 @@ public class Tableau {
 
     for (int i = 0; i < rows.length; i++) {
       if (rows[i][colIndex] > 0) {
-        bottleNecks[i] = cons[i] / rows[i][colIndex];
+        bottleNecks[i] = constraintResults[i] / rows[i][colIndex];
       }
     }
 
@@ -193,70 +192,15 @@ public class Tableau {
   }
 
   public void solve() {
-    List<Double> obj = new ArrayList<Double>();
-    List<Integer> basis = new ArrayList<>();
+    final List<Double> obj = new ArrayList<>();
+    final List<Integer> basis = new ArrayList<>();
+    final List<List<Double>> rows = new ArrayList<>();
 
-    List<List<Double>> rows = new ArrayList<>();
+    buildTableau(obj, basis, rows);
+    initializeTableau(obj, basis, rows);
 
-    for (int i = 0; i < this.rows.length; i++) {
-      rows.add(new ArrayList<>());
-      for (int j = 0; j < this.rows[i].length; j++) {
-        rows.get(i).add(this.rows[i][j]);
-      }
-    }
-
-    // fill up obj values
-    for (double v : this.obj) {
-      obj.add(v);
-    }
-
-    // build tableau
-    for (int i = 0; i < rowsAmount; i++) {
-      obj.add(0D);
-
-      List<Double> ident = new ArrayList<>();
-
-      for (int j = 0; j < rows.size(); j++) {
-        ident.add(0D);
-      }
-
-      ident.set(i, 1D);
-
-      basis.add(rowsAmount + i);
-
-      ident.add(cons[i]);
-
-      for (int k = 0; k < rows.size(); k++) {
-        rows.get(k).add(ident.get(k));
-      }
-    }
-
-    System.out.println("basis");
-    System.out.println(basis);
-
-    this.rows = new double[rows.size()][rows.get(0).size()];
-
-    for (int i = 0; i < this.rows.length; i++) {
-      for (int j = 0; j < this.rows[i].length; j++) {
-        this.rows[i][j] = rows.get(i).get(j);
-      }
-    }
-
-    this.basis = new int[basis.size()];
-
-    for (int i = 0; i < basis.size(); i++) {
-      this.basis[i] = basis.get(i);
-    }
-
-    this.obj = new double[obj.size()];
-
-    for (int i = 0; i < obj.size(); i++) {
-      this.obj[i] = obj.get(i);
-    }
-
-    // obj = noch eine 0 am ende?
+    // fill delta values with 0
     Arrays.fill(delta, 0);
-
     int iteration = 0;
 
     while (true) {
@@ -267,7 +211,7 @@ public class Tableau {
       }
 
       if (!isFeasible()) {
-        System.err.println("Nicht lösbar. Min ein b < 0 ist erforderlich!");
+        System.err.println("Not solvable. At least one b < 0 is needed to solve!");
         this.display();
         return;
       }
@@ -278,25 +222,96 @@ public class Tableau {
 
       if (k == -1) {
         display();
-        System.out.println("Optimum gefunden!");
+        System.out.println("Optimum found!");
         return;
       }
 
-      Pair<Integer, Double> bottleneck = calculateBottleneck(k);
+      final Pair<Integer, Double> bottleneck = calculateBottleneck(k);
 
       if (bottleneck.getValue() < Long.MAX_VALUE) {
         display();
 
-        System.out.println("x_" + (rowsAmount + bottleneck.getKey() + 1) + " verlässt die Basis.");
-        System.out.println("x_" + (k + 1) + " geht in die Basis.");
+        System.out.println("x_" + (rowsAmount + bottleneck.getKey() + 1) + " leaves the basis.");
+        System.out.println("x_" + (k + 1) + " gets into basis");
 
         pivot(bottleneck.getKey(), k);
         this.basis[bottleneck.getKey()] = k;
       } else {
-        System.err.println("Nicht lösbar!");
+        System.err.println("not solvable: No bottlenecks were found!");
         this.display();
         return;
       }
+    }
+  }
+
+  /**
+   * Builds up the tableau using the given values in our arrays.
+   * Also the missing basis columns will be added to create a fitting start solution.
+   * @param obj
+   * @param basis
+   * @param rows
+   */
+  void buildTableau(List<Double> obj, List<Integer> basis, List<List<Double>> rows) {
+    for (int i = 0; i < this.rows.length; i++) {
+      rows.add(new ArrayList<>());
+      for (int j = 0; j < this.rows[i].length; j++) {
+        rows.get(i).add(this.rows[i][j]);
+      }
+    }
+
+    // fill up obj values
+    for (double v : this.objectFunctionCoefficients) {
+      obj.add(v);
+    }
+
+    // build tableau
+    for (int i = 0; i < rowsAmount; i++) {
+      obj.add(0D);
+
+      final List<Double> ident = new ArrayList<>();
+
+      for (int j = 0; j < rows.size(); j++) {
+        ident.add(0D);
+      }
+
+      ident.set(i, 1D);
+      basis.add(rowsAmount + i);
+      ident.add(constraintResults[i]);
+
+      for (int k = 0; k < rows.size(); k++) {
+        rows.get(k).add(ident.get(k));
+      }
+    }
+  }
+
+  /**
+   * copies list values into array fields
+   * @param obj
+   * @param basis
+   * @param rows
+   */
+  void initializeTableau(List<Double> obj, List<Integer> basis, List<List<Double>> rows) {
+    // copy rows into array
+    this.rows = new double[rows.size()][rows.get(0).size()];
+
+    for (int i = 0; i < this.rows.length; i++) {
+      for (int j = 0; j < this.rows[i].length; j++) {
+        this.rows[i][j] = rows.get(i).get(j);
+      }
+    }
+
+    // copy basis into array
+    this.basis = new int[basis.size()];
+
+    for (int i = 0; i < basis.size(); i++) {
+      this.basis[i] = basis.get(i);
+    }
+
+    // copy object coefficients into array
+    this.objectFunctionCoefficients = new double[obj.size()];
+
+    for (int i = 0; i < obj.size(); i++) {
+      this.objectFunctionCoefficients[i] = obj.get(i);
     }
   }
 
@@ -314,9 +329,9 @@ public class Tableau {
     final StringBuilder key = new StringBuilder("");
     final StringBuilder builder = new StringBuilder("");
 
-    for (int i = 0; i < obj.length; i++) {
+    for (int i = 0; i < objectFunctionCoefficients.length; i++) {
       key.append(" x_").append(i + 1);
-      builder.append(" ").append(obj[i]);
+      builder.append(" ").append(objectFunctionCoefficients[i]);
     }
 
     System.out.println(key.toString().substring(1));
@@ -341,7 +356,7 @@ public class Tableau {
         builder.append(" ").append(rows[i][j]);
       }
 
-      builder.append(" | ").append(cons[i]);
+      builder.append(" | ").append(constraintResults[i]);
 
       System.out.println(builder.toString().substring(1));
     }
@@ -361,10 +376,10 @@ public class Tableau {
   public String toString() {
     return "Tableau{" +
         "rows=" + Arrays.toString(rows) +
-        ", cons=" + Arrays.toString(cons) +
+        ", cons=" + Arrays.toString(constraintResults) +
         ", delta=" + Arrays.toString(delta) +
         ", basis=" + Arrays.toString(basis) +
-        ", obj=" + Arrays.toString(obj) +
+        ", obj=" + Arrays.toString(objectFunctionCoefficients) +
         '}';
   }
 
