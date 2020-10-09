@@ -1,7 +1,10 @@
 import junit.framework.TestCase;
 
-/** Created by ychan052 on 08.10.2020. */
+/**
+ * Created by ychan052 on 08.10.2020.
+ */
 public class MinArrayHeapTest extends TestCase {
+
   public void testInsert() {
     MinArrayHeap mh = new MinArrayHeap();
     mh.insert(30);

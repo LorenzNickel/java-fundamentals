@@ -7,7 +7,7 @@ import junit.framework.TestCase;
  */
 public class SimplexTest extends TestCase {
 
-  public void testSolution(){
+  public void testSolution() {
     Tableau tableau = new TableauBuilder().addObjectFunctionCoefficients(6, -4, -2)
         .addConstraint(10, 3, 0, 3)
         .addConstraint(12, 1, 1, -1)
@@ -22,7 +22,7 @@ public class SimplexTest extends TestCase {
     assertEquals(-1, tableau.isOptimal());
   }
 
-  public void testIllegalStartSolution(){
+  public void testIllegalStartSolution() {
     Tableau tableau = new TableauBuilder().addObjectFunctionCoefficients(6, -4, -2)
         .addConstraint(-10, 3, 0, 3)
         .addConstraint(-12, 1, 1, -1)

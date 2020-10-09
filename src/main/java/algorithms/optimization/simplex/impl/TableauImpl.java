@@ -1,7 +1,6 @@
 package algorithms.optimization.simplex.impl;
 
 import algorithms.optimization.simplex.Tableau;
-import algorithms.optimization.simplex.TableauBuilder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -29,7 +28,8 @@ public class TableauImpl implements Tableau {
   private int[] basis; // indices of the columns which are currently the base columns
   private double[] delta; // delta values
 
-  public TableauImpl(double[] objectFunctionCoefficients, double[][] rows, double[] constraintResults, int[] basis) {
+  public TableauImpl(double[] objectFunctionCoefficients, double[][] rows,
+      double[] constraintResults, int[] basis) {
     this.objectFunctionCoefficients = objectFunctionCoefficients;
     this.delta = new double[rows.length];
     this.rows = rows;

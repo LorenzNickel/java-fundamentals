@@ -17,7 +17,7 @@ public class TupleTest extends TestCase {
   }
 
   public void testEquals() {
-    final Tuple<Integer> tupleA = new Tuple<>(1,2);
+    final Tuple<Integer> tupleA = new Tuple<>(1, 2);
     assertEquals(tupleA, new Tuple<>(1, 2));
     assertNotSame(null, tupleA);
     assertNotSame(tupleA, null);

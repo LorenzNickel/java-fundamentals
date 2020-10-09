@@ -6,9 +6,8 @@ import java.util.List;
 
 /**
  * @author thepn
- *
+ * <p>
  * Builder for a Simplex-Tableau.
- *
  * @see TableauImpl
  * @see Tableau
  */
@@ -20,12 +19,12 @@ public class TableauBuilder {
   private final List<Integer> basis = new ArrayList<>();
 
   /**
-   * Adds object function coefficient (array).
-   * Could be 4 * x1 + 12 * x2 + 3 * x3 = [...]
-   * Array would be [4, 12, 3]
+   * Adds object function coefficient (array). Could be 4 * x1 + 12 * x2 + 3 * x3 = [...] Array
+   * would be [4, 12, 3]
+   *
    * @param obj array of coefficients
    */
-  public TableauBuilder addObjectFunctionCoefficients(double... obj){
+  public TableauBuilder addObjectFunctionCoefficients(double... obj) {
     assert obj.length != 0;
 
     for (double v : obj) {
@@ -36,12 +35,12 @@ public class TableauBuilder {
   }
 
   /**
-   * adds a new constraint in format of
-   * c0 * x1 + c1 * x2 + c2 * x3 = result
-   * @param result - constraint result
+   * adds a new constraint in format of c0 * x1 + c1 * x2 + c2 * x3 = result
+   *
+   * @param result       - constraint result
    * @param coefficients - constraint coefficients
    */
-  public TableauBuilder addConstraint(double result, double... coefficients){
+  public TableauBuilder addConstraint(double result, double... coefficients) {
     assert coefficients.length != 0;
 
     final List<Double> row = new ArrayList<>();
@@ -84,10 +83,11 @@ public class TableauBuilder {
 
   /**
    * Converts row list to row array
+   *
    * @param rowList
    * @return rows as double array
    */
-  private double[][] toRowArray(List<List<Double>> rowList){
+  private double[][] toRowArray(List<List<Double>> rowList) {
     final double[][] rows = new double[rowList.size()][rowList.get(0).size()];
 
     for (int i = 0; i < rowList.size(); i++) {
@@ -104,7 +104,7 @@ public class TableauBuilder {
     return rows;
   }
 
-  private double[] toArray(List<Double> cons){
+  private double[] toArray(List<Double> cons) {
     final double[] consArray = new double[cons.size()];
 
     for (int i = 0; i < cons.size(); i++) {
@@ -114,7 +114,7 @@ public class TableauBuilder {
     return consArray;
   }
 
-  private int[] toBasisArray(List<Integer> basis){
+  private int[] toBasisArray(List<Integer> basis) {
     final int[] basisArray = new int[basis.size()];
 
     for (int i = 0; i < basis.size(); i++) {
@@ -126,9 +126,10 @@ public class TableauBuilder {
 
   /**
    * Initializes a Simplex-Tableau
+   *
    * @return tableau
    */
-  public Tableau build(){
+  public Tableau build() {
     this.assertPreconditions();
     this.buildTableau();
 
@@ -140,7 +141,7 @@ public class TableauBuilder {
     return new TableauImpl(obj, rows, cons, basis);
   }
 
-  private void assertPreconditions(){
+  private void assertPreconditions() {
     assert rows.size() > 0;
     assert obj.size() > 0;
 

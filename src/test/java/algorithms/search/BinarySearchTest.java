@@ -35,21 +35,21 @@ public class BinarySearchTest extends TestCase {
   public void testRecursively() {
     BinarySearch<Integer> binarySearch = new BinarySearch<>(
         new Integer[]{-10, -5, -3, 0, 4, 19, 233});
-    assertEquals(binarySearch.searchRecursively(0, 6,-15), -1);
-    assertEquals(binarySearch.searchRecursively(0, 6,-10), 0);
-    assertEquals(binarySearch.searchRecursively(0, 6,-8), -1);
-    assertEquals(binarySearch.searchRecursively(0, 6,-5), 1);
-    assertEquals(binarySearch.searchRecursively(0, 6,-4), -1);
-    assertEquals(binarySearch.searchRecursively(0, 6,-3), 2);
-    assertEquals(binarySearch.searchRecursively(0, 6,-1), -1);
-    assertEquals(binarySearch.searchRecursively(0, 6,0), 3);
-    assertEquals(binarySearch.searchRecursively(0, 6,-2), -1);
-    assertEquals(binarySearch.searchRecursively(0, 6,4), 4);
-    assertEquals(binarySearch.searchRecursively(0, 6,10), -1);
-    assertEquals(binarySearch.searchRecursively(0, 6,19), 5);
-    assertEquals(binarySearch.searchRecursively(0, 6,30), -1);
-    assertEquals(binarySearch.searchRecursively(0, 6,233), 6);
-    assertEquals(binarySearch.searchRecursively(0, 6,300), -1);
+    assertEquals(binarySearch.searchRecursively(0, 6, -15), -1);
+    assertEquals(binarySearch.searchRecursively(0, 6, -10), 0);
+    assertEquals(binarySearch.searchRecursively(0, 6, -8), -1);
+    assertEquals(binarySearch.searchRecursively(0, 6, -5), 1);
+    assertEquals(binarySearch.searchRecursively(0, 6, -4), -1);
+    assertEquals(binarySearch.searchRecursively(0, 6, -3), 2);
+    assertEquals(binarySearch.searchRecursively(0, 6, -1), -1);
+    assertEquals(binarySearch.searchRecursively(0, 6, 0), 3);
+    assertEquals(binarySearch.searchRecursively(0, 6, -2), -1);
+    assertEquals(binarySearch.searchRecursively(0, 6, 4), 4);
+    assertEquals(binarySearch.searchRecursively(0, 6, 10), -1);
+    assertEquals(binarySearch.searchRecursively(0, 6, 19), 5);
+    assertEquals(binarySearch.searchRecursively(0, 6, 30), -1);
+    assertEquals(binarySearch.searchRecursively(0, 6, 233), 6);
+    assertEquals(binarySearch.searchRecursively(0, 6, 300), -1);
   }
 
   public void testIntegerArrayWithNullValues() {

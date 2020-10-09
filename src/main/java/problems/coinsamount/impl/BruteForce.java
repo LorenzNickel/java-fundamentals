@@ -13,7 +13,7 @@ public class BruteForce implements CoinsAmount {
   public static <T> List<List<T>> combination(List<T> values, int size) {
 
     if (0 == size) {
-      return Collections.singletonList(Collections.<T> emptyList());
+      return Collections.singletonList(Collections.<T>emptyList());
     }
 
     if (values.isEmpty()) {

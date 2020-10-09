@@ -8,8 +8,8 @@ import algorithms.random.ListShuffle;
 public class BogoSort {
 
   /**
-   * Sorts the array using the bogosort algorithm
-   * (Array will be shuffled randomly and if it is sorted, the algorithm will finish)
+   * Sorts the array using the bogosort algorithm (Array will be shuffled randomly and if it is
+   * sorted, the algorithm will finish)
    *
    * @param array
    * @param <T>

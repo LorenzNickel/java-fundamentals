@@ -134,8 +134,8 @@ public class MatrixTest extends TestCase {
   }
 
   public void testToString() {
-    final Matrix matrix = new Matrix(new int[][]{{1,3},{3,4}});
-    assertEquals("Matrix{array=[[1, 3], [3, 4]]}", matrix.toString() );
+    final Matrix matrix = new Matrix(new int[][]{{1, 3}, {3, 4}});
+    assertEquals("Matrix{array=[[1, 3], [3, 4]]}", matrix.toString());
   }
 
   public void testEqualsAndHashCode() {

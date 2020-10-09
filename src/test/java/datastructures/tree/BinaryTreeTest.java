@@ -1,9 +1,8 @@
 package datastructures.tree;
 
-import junit.framework.TestCase;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import junit.framework.TestCase;
 
 /**
  * @author thepn

@@ -1,10 +1,15 @@
 import java.util.ArrayList;
 
-/** A min heap based on an array list. */
+/**
+ * A min heap based on an array list.
+ */
 public class MinArrayHeap {
+
   ArrayList<Integer> minHeap;
 
-  /** Constructor; Creates the minHeap arrayList. */
+  /**
+   * Constructor; Creates the minHeap arrayList.
+   */
   public MinArrayHeap() {
     minHeap = new ArrayList<>();
   }
@@ -67,7 +72,7 @@ public class MinArrayHeap {
       while (leftChild < minHeap.size()
           && rightChild < minHeap.size()
           && (minHeap.get(i) >= minHeap.get(leftChild)
-              || minHeap.get(i) >= minHeap.get(rightChild))) {
+          || minHeap.get(i) >= minHeap.get(rightChild))) {
         // If either child of the root is smaller than it, swap the root with the child of lesser
         // value.
         if (minHeap.get(leftChild) < minHeap.get(rightChild)) {
