@@ -196,13 +196,6 @@ public class TableauImpl implements Tableau {
   }
 
   public double solve() {
-//    final List<Double> obj = new ArrayList<>();
-//    final List<Integer> basis = new ArrayList<>();
-//    final List<List<Double>> rows = new ArrayList<>();
-//
-//    buildTableau(obj, basis, rows);
-//    initializeTableau(obj, basis, rows);
-
     // fill delta values with 0
     Arrays.fill(delta, 0);
     int iteration = 0;
