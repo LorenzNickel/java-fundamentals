@@ -10,9 +10,9 @@ import javafx.util.Pair;
 /**
  * Basic implementation of the simplex algorithm. For more information have a look at
  * <ahref="https://en.wikipedia.org/wiki/Simplex_algorithm">Wikipedia</a>
- * <p>
+ *
  * This algorithm solves linear optimization problems.
- * <p>
+ *
  * When you are not able to find a fitting start solution you need to use the 2-phase method which
  * is not implemented yet.
  *

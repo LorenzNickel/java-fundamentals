@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @author thepn
- * <p>
+ *
  * Builder for a Simplex-Tableau.
  * @see TableauImpl
  * @see Tableau
