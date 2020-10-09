@@ -9,7 +9,7 @@ import javafx.util.Pair;
 
 /**
  * Basic implementation of the simplex algorithm. For more information have a look at
- * <ahref="https://en.wikipedia.org/wiki/Simplex_algorithm">Wikipedia</a>
+ * <a href="https://en.wikipedia.org/wiki/Simplex_algorithm">Wikipedia</a>
  *
  * This algorithm solves linear optimization problems.
  *
