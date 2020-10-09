@@ -1,4 +1,4 @@
-package algorithms.optimization.simplex;
+package algorithms.simplex;
 
 import java.util.ArrayList;
 import java.util.Arrays;
