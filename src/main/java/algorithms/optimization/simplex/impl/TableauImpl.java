@@ -1,11 +1,11 @@
 package algorithms.optimization.simplex.impl;
 
 import algorithms.optimization.simplex.Tableau;
+import datastructures.pair.Pair;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import javafx.util.Pair;
 
 /**
  * Basic implementation of the simplex algorithm. For more information have a look at

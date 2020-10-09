@@ -1,6 +1,6 @@
 package algorithms.optimization.simplex;
 
-import javafx.util.Pair;
+import datastructures.pair.Pair;
 
 public interface Tableau {
 
