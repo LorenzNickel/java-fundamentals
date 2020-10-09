@@ -365,22 +365,6 @@ public class TableauImpl implements Tableau {
     }
   }
 
-  public static void main(String[] args) {
-//    Tableau tableau = new Tableau(new double[]{6, -4, -2}, new double[][]{
-//        new double[]{3, 0, 3},
-//        new double[]{1, 1, -1},
-//        new double[]{3, 2, 1}
-//    }, new double[]{10, 12, 26});
-
-    algorithms.optimization.simplex.Tableau tableau = new TableauBuilder().addObjectFunctionCoefficients(6, -4, -2)
-        .addConstraint(10, 3, 0, 3)
-        .addConstraint(12, 1, 1, -1)
-        .addConstraint(26, 3, 2, 1)
-        .build();
-
-    tableau.solve();
-  }
-
   @Override
   public String toString() {
     return "Tableau{" +
