@@ -7,10 +7,6 @@ package algorithms.sort;
  */
 public class InsertionSort {
 
-  private InsertionSort() {
-
-  }
-
   /**
    * Sorts the array using insertion sort algorithm
    *
