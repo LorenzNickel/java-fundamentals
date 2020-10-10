@@ -23,6 +23,16 @@ public class JumpSearchTest extends TestCase {
     assertEquals(jumpSearch.searchFor( 99), 9);
   }
 
+  public void testIntegerArrayNoSearchValue(){
+    JumpSearch<Integer> jumpSearch = new JumpSearch<>(new Integer[]{5, 22, 24, 47, 57, 67, 89, 91, 95, 99});
+    assertEquals(jumpSearch.searchFor( 29), -1);
+  }
+
+  public void testIntegerArrayNoSearchValueLargestNumber(){
+    JumpSearch<Integer> jumpSearch = new JumpSearch<>(new Integer[]{5, 11, 15, 18, 22, 24, 27, 34, 38, 47, 57, 59, 67, 89, 91, 95, 99});
+    assertEquals(jumpSearch.searchFor( 103), -1);
+  }
+
   public void testIntegerArrayWithNullValues() {
     JumpSearch<Integer> jumpSearch = new JumpSearch<>(new Integer[]{1, 2, null, 2, null});
     try {

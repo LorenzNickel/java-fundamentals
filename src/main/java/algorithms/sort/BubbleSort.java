@@ -8,6 +8,9 @@ package algorithms.sort;
  */
 public class BubbleSort {
 
+  private BubbleSort() {
+  }
+
   /**
    * Sorts the array using bubble sort algorithm
    *
