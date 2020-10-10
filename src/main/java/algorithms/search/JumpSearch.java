@@ -28,16 +28,10 @@ public class JumpSearch <E extends Comparable<? super E>> {
     while (array[Math.min(jumpStep, arrayLength) - 1].compareTo(elementToSearch) < 0) {
       previousStep = jumpStep;
       jumpStep += (int) (Math.sqrt(arrayLength));
-      if (previousStep >= arrayLength) {
-        return -1;
-      }
     }
 
     while (array[previousStep].compareTo(elementToSearch) < 0) {
       previousStep++;
-      if (previousStep == Math.min(jumpStep, arrayLength)) {
-        return -1;
-      }
     }
 
     if (array[previousStep] == elementToSearch) {
