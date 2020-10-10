@@ -2,7 +2,15 @@ package algorithms.search;
 
 public class JumpSearch {
 
-  public static int jumpSearch(int[] integers, int elementToSearch) {
+  public int searchFor(int[] integers, int elementToSearch) {
+
+    if (integers == null) {
+      throw new IllegalArgumentException("Parameter array must not be null");
+    }
+
+    if (integers.length == 0){
+      return -1;
+    }
 
     int arrayLength = integers.length;
     int jumpStep = (int) Math.sqrt(integers.length);
@@ -27,11 +35,4 @@ public class JumpSearch {
     }
     return -1;
   }
-
-  public static void main(String[] args) {
-
-    int indexFound = jumpSearch(new int[]{5, 22, 24, 47, 57, 67, 89, 91, 95, 90}, 67);
-    System.out.println("I have found element 67 at Index: " + indexFound);
-  }
-
 }
