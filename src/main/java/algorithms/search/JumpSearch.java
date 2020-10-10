@@ -10,18 +10,21 @@ public class JumpSearch {
 
     while (integers[Math.min(jumpStep, arrayLength) - 1] < elementToSearch) {
       previousStep = jumpStep;
-      jumpStep += (int)(Math.sqrt(arrayLength));
-      if (previousStep >= arrayLength)
+      jumpStep += (int) (Math.sqrt(arrayLength));
+      if (previousStep >= arrayLength) {
         return -1;
+      }
     }
     while (integers[previousStep] < elementToSearch) {
       previousStep++;
-      if (previousStep == Math.min(jumpStep, arrayLength))
+      if (previousStep == Math.min(jumpStep, arrayLength)) {
         return -1;
+      }
     }
 
-    if (integers[previousStep] == elementToSearch)
+    if (integers[previousStep] == elementToSearch) {
       return previousStep;
+    }
     return -1;
   }
 
