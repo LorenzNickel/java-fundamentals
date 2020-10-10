@@ -22,4 +22,14 @@ public class JumpSearchTest extends TestCase {
     assertEquals(jumpSearch.searchFor(new int[]{5, 22, 24, 47, 57, 67, 89, 91, 95, 99}, 95), 8);
     assertEquals(jumpSearch.searchFor(new int[]{5, 22, 24, 47, 57, 67, 89, 91, 95, 99}, 99), 9);
   }
+
+  public void testWithNullArray() {
+    try {
+      JumpSearch jumpSearch =new JumpSearch();
+      jumpSearch.searchFor(null,0);
+      fail();
+    } catch (IllegalArgumentException ignored) {
+    }
+  }
+
 }
