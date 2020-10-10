@@ -26,17 +26,8 @@ public class CompositeElement extends Base {
     return stringBuilder.toString();
   }
 
-  public Collection<Base> getChildren() {
-    return this.children;
-  }
-
   public void addChild(final Base element) {
     this.children.add(element);
   }
-
-  public void removeChild(final Base element) {
-    this.children.remove(element);
-  }
-
 
 }
