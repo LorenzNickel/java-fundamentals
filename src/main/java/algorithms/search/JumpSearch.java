@@ -8,7 +8,7 @@ public class JumpSearch {
       throw new IllegalArgumentException("Parameter array must not be null");
     }
 
-    if (integers.length == 0){
+    if (integers.length == 0) {
       return -1;
     }
 
