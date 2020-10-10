@@ -14,7 +14,7 @@ Recursively traverse through tree 's' and if value of node 'n' is the same as th
 
 Time complexity of recursively traversing the tree 't' is O(n) if 'n' be the total number nodes in it.
 
-Time complexity of recursively traversing the tree 's' is O(m) is 'm' be the total number nodes in it
+Time complexity of recursively traversing the tree 's' is O(m) is 'm' be the total number nodes in it.
 
 In the worst case the isSubTree() function will be called at every node, hence time complexity of this implementation is `O(n*m)`.
 

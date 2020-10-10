@@ -1,6 +1,5 @@
 package problems.checkSubTree;
 
-import java.util.ArrayList;
 import junit.framework.TestCase;
 import problems.checkSubTree.impl.Recursive;
 import problems.checkSubTree.resources.TreeNode;
