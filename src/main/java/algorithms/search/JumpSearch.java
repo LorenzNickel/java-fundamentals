@@ -16,6 +16,7 @@ package algorithms.search;
 public class JumpSearch <E extends Comparable<? super E>> {
 
   private final E[] array;
+  private int iterationsToFind;
 
   public JumpSearch(E[] array) {
     if (array == null) {
@@ -25,6 +26,8 @@ public class JumpSearch <E extends Comparable<? super E>> {
   }
 
   public int searchFor(final E elementToSearch) {
+
+    iterationsToFind = 0;
 
     if (elementToSearch == null) {
       throw new IllegalArgumentException("Parameter toSearch most not be null");
@@ -41,6 +44,7 @@ public class JumpSearch <E extends Comparable<? super E>> {
     while (array[Math.min(jumpStep, arrayLength) - 1].compareTo(elementToSearch) < 0) {
       previousStep = jumpStep;
       jumpStep += (int) (Math.sqrt(arrayLength));
+      iterationsToFind++;
       if (previousStep >= arrayLength) {
         return -1;
       }
@@ -48,6 +52,7 @@ public class JumpSearch <E extends Comparable<? super E>> {
 
     while (array[previousStep].compareTo(elementToSearch) < 0) {
       previousStep++;
+      iterationsToFind++;
       if (previousStep == Math.min(jumpStep, arrayLength)) {
         return -1;
       }
@@ -57,5 +62,9 @@ public class JumpSearch <E extends Comparable<? super E>> {
       return previousStep;
     }
     return -1;
+  }
+
+  public int getIterationsToFind(){
+    return iterationsToFind;
   }
 }

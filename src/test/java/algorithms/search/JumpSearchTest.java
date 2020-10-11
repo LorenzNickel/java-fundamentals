@@ -33,6 +33,13 @@ public class JumpSearchTest extends TestCase {
     assertEquals(jumpSearch.searchFor( 103), -1);
   }
 
+  public void testIntegerArraySearchAndIterations(){
+    JumpSearch<Integer> jumpSearch = new JumpSearch<>(new Integer[]{5, 11, 15, 18, 22, 24, 27, 34, 38, 47, 57, 59, 67, 89, 91, 95, 99});
+    assertEquals(jumpSearch.searchFor( 67), 12);
+    // Test to see if this is found in 3 iterations compared to 12 using linear search on a sorted array
+    assertEquals(jumpSearch.getIterationsToFind(),3);
+  }
+
   public void testIntegerArrayWithNullValues() {
     JumpSearch<Integer> jumpSearch = new JumpSearch<>(new Integer[]{1, 2, null, 2, null});
     try {
