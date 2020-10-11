@@ -64,7 +64,7 @@ public class JumpSearch <E extends Comparable<? super E>> {
     return -1;
   }
 
-  public int getIterationsToFind(){
+  public int getIterationsToFind() {
     return iterationsToFind;
   }
 }
