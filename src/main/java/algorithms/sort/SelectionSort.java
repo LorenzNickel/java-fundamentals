@@ -28,9 +28,11 @@ public class SelectionSort {
         }
       }
       // Swaps elements
-      T temp = input[i];
-      input[i] = input[minimum];
-      input[minimum] = temp;
+      {
+        T temp = input[i];
+        input[i] = input[minimum];
+        input[minimum] = temp;
+      }
     }
   }
 
