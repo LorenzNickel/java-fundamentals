@@ -6,9 +6,9 @@ package algorithms.sort;
  * @author AtharvaKamble
  * @see <a href="https://www.geeksforgeeks.org/selection-sort/">Selection Sort (GeeksforGeeks)</a>
  */
-public class SelectionSortTest {
+public class SelectionSort {
 
-  private SelectionSortTest() { }
+  private SelectionSort() { }
 
   /**
    * Sorts the array using selection sort algorithm
@@ -17,7 +17,7 @@ public class SelectionSortTest {
    * @param input
    */
   public static <T extends Comparable<T>> void selectionSort(T[] input) {
-    int minimum;
+    int minimum; 
 
     for (int i = 0; i < input.length - 1; i++) {
       minimum = i;
