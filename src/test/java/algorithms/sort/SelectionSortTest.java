@@ -6,9 +6,9 @@ package algorithms.sort;
  * @author AtharvaKamble
  * @see <a href="https://www.geeksforgeeks.org/selection-sort/">Selection Sort (GeeksforGeeks)</a>
  */
-public class SelectionSort {
+public class SelectionSortTest {
 
-  private SelectionSort() { }
+  private SelectionSortTest() { }
 
   /**
    * Sorts the array using selection sort algorithm
