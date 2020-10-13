@@ -10,7 +10,7 @@ import junit.framework.TestCase;
  */
 public class SelectionSortTest extends TestCase {
 
-  private testSelectionSort() {
+  public void testSelectionSort() {
     Short[] array = new Short[]{3, 2, 5, 4, 1};
 
     SelectionSort.selectionSort(array);
