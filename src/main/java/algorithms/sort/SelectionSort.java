@@ -26,11 +26,11 @@ public class SelectionSort {
         if (input[j] < input[minimum]){
           minimum = j;
         }
-        // Swaps elements
-        T temp = input[i];
-        input[i] = input[minimum];
-        input[minimum] = temp;
       }
+      // Swaps elements
+      T temp = input[i];
+      input[i] = input[minimum];
+      input[minimum] = temp;
     }
   }
 
