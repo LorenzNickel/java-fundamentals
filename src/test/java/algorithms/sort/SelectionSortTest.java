@@ -1,36 +1,22 @@
 package algorithms.sort;
 
+import junit.framework.TestCase;
+
 /**
  * Static implementation of the selection sort algorithm
  *
  * @author AtharvaKamble
  * @see <a href="https://www.geeksforgeeks.org/selection-sort/">Selection Sort (GeeksforGeeks)</a>
  */
-public class SelectionSortTest {
+public class SelectionSortTest extends TestCase {
 
-  private SelectionSortTest() { }
+  private testSelectionSort() {
+    Short[] array = new Short[]{3, 2, 5, 4, 1};
 
-  /**
-   * Sorts the array using selection sort algorithm
-   *
-   * @param <T>
-   * @param input
-   */
-  public static <T extends Comparable<T>> void selectionSort(T[] input) {
-    int minimum; 
+    SelectionSort.selectionSort(array);
 
-    for (int i = 0; i < input.length - 1; i++) {
-      minimum = i;
-      for (int j = i + 1; j < input.length; j++){
-        // Checks if we have a new minimum
-        if (input[j] < input[minimum])
-          minimum = j;
-        
-        // Swaps elements
-        T temp = input[i];
-        input[i] = input[minimum];
-        input[minimum] = temp;
-      }
+    for (int i = 0; i < 5; i++) {
+      assertEquals(i + 1, (short) array[i]);
     }
   }
 
