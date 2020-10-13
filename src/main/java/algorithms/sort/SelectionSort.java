@@ -23,9 +23,9 @@ public class SelectionSort {
       minimum = i;
       for (int j = i + 1; j < input.length; j++){
         // Checks if we have a new minimum
-        if (input[j] < input[minimum])
+        if (input[j] < input[minimum]){
           minimum = j;
-        
+        }
         // Swaps elements
         T temp = input[i];
         input[i] = input[minimum];
