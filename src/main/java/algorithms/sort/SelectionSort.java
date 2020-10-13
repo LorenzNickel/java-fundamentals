@@ -22,17 +22,13 @@ public class SelectionSort {
     for (int i = 0; i < input.length - 1; i++) {
       minimum = i;
       for (int j = i + 1; j < input.length; j++){
-        // Checks if we have a new minimum
         if (input[j] < input[minimum]){
           minimum = j;
         }
       }
-      // Swaps elements
-      {
         T temp = input[i];
         input[i] = input[minimum];
         input[minimum] = temp;
-      }
     }
   }
 
