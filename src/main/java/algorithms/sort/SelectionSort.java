@@ -17,8 +17,7 @@ public class SelectionSort {
    * @param input
    */
   public static <T extends Comparable<T>> void selectionSort(T[] input) {
-    int minimum; 
-
+    int minimum;
     for (int i = 0; i < input.length - 1; i++) {
       minimum = i;
       for (int j = i + 1; j < input.length; j++){
@@ -26,9 +25,9 @@ public class SelectionSort {
           minimum = j;
         }
       }
-        T temp = input[i];
-        input[i] = input[minimum];
-        input[minimum] = temp;
+      T temp = input[i];
+      input[i] = input[minimum];
+      input[minimum] = temp;
     }
   }
 
