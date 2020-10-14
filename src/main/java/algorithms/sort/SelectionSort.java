@@ -20,7 +20,7 @@ public class SelectionSort {
     int minimum;
     for (int i = 0; i < input.length - 1; i++) {
       minimum = i;
-      for (int j = i + 1; j < input.length; j++){
+      for (int j = i + 1; j < input.length; j++) {
         if (input[j] < input[minimum]){
           minimum = j;
         }
