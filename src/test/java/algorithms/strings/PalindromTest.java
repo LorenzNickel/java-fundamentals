@@ -20,6 +20,7 @@ public class PalindromTest extends TestCase {
     assertTrue(check.isPalindrom("@@§§&&§§@@"));
     assertTrue(check.isPalindrom("a"));
     assertTrue(check.isPalindrom("bb"));
+    assertTrue(check.isPalindrom(""));
   }
 
   public void testNoPalindroms(){

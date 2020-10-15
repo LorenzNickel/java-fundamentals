@@ -17,10 +17,6 @@ public class PalindromCheck {
   public boolean isPalindrom(String input) {
     final int length = input.length();
 
-    if (length == 1) {
-      return true;
-    }
-
     for (int i = 0; i < length; i++) {
       if (input.charAt(i) != input.charAt(length - (i + 1))) {
         return false;
