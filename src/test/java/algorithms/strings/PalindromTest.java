@@ -15,7 +15,6 @@ public class PalindromTest extends TestCase {
     assertTrue(check.isPalindrom("otto"));
     assertTrue(check.isPalindrom("anna"));
     assertTrue(check.isPalindrom("rentner"));
-    assertTrue(check.isPalindrom("lagerregal"));
     assertTrue(check.isPalindrom("1221"));
     assertTrue(check.isPalindrom("@@§§&&§§@@"));
     assertTrue(check.isPalindrom("a"));
