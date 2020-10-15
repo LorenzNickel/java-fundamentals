@@ -1,33 +1,46 @@
 package algorithms.search.astar.model;
 
-/** This class represents a node in graph specific for this implementation of the A* Algorithm */
+/**
+ * This class represents a node in graph specific for this implementation of the A* Algorithm
+ */
 public class Node {
-  /** Column of the Node in the Grid (x Coordinate) */
-  private int x;
-  /** Row of the Node in the Grid (y Coordinate) */
-  private int y;
-  /** String shown in the CLI (exactly 2 chars long) */
+
+  /**
+   * Coordinate (or position) of the node in the grid
+   */
+  Vector2 pos;
+  /**
+   * String shown in the CLI (exactly 2 chars long)
+   */
   private String status;
-  /** G Cost and F Cost combined */
+  /**
+   * G Cost and H Cost combined
+   */
   private double fCost;
-  /** Heuristic: Distance to the end node */
+  /**
+   * Heuristic: Distance to the end node
+   */
   private double hCost;
-  /** Distance to the start node */
+  /**
+   * Distance to the start node
+   */
   private double gCost;
-  /** Whether the node is traversable */
+  /**
+   * Whether the node is traversable
+   */
   private boolean walkable;
-  /** Parent (or previous) node */
+  /**
+   * Parent (or previous) node
+   */
   private Node previous;
 
   /**
    * Node constructor
    *
-   * @param x Column in the Grid
-   * @param y Row in the Grid
+   * @param pos Coordinate of the node in the grid
    */
-  public Node(int x, int y) {
-    this.x = x;
-    this.y = y;
+  public Node(Vector2 pos) {
+    this.pos = pos;
     this.status = "  ";
     this.fCost = Double.POSITIVE_INFINITY;
     this.hCost = Double.POSITIVE_INFINITY;
@@ -40,20 +53,17 @@ public class Node {
    * Checks whether a shorter path is found
    *
    * @param openedNode Node which called this method
-   * @param cost Cost to move from the calling node to this
-   * @return
+   * @param cost       Cost to move from the calling node to this
+   * @return whether the path is shorter
    */
   public boolean checkShorterPath(Node openedNode, double cost) {
-    if (openedNode.getGCost() + cost < gCost) {
-      return true;
-    }
-    return false;
+    return openedNode.getGCost() + cost < gCost;
   }
 
   /**
    * Calculates all Costs
    *
-   * @param to Destination node
+   * @param to   Destination node
    * @param cost Cost to move to this node from the calling node
    */
   public void calcAllCosts(Node to, double cost) {
@@ -68,7 +78,7 @@ public class Node {
    * @param to Destination node
    */
   public void calcHCost(Node to) {
-    hCost = Math.sqrt(Math.pow(x - to.getX(), 2) + Math.pow(y - to.getY(), 2)) * 10;
+    hCost = Math.sqrt(Math.pow(pos.getX() - to.getX(), 2) + Math.pow(pos.getY() - to.getY(), 2)) * 10;
   }
 
   /**
@@ -83,7 +93,7 @@ public class Node {
   @Override
   public boolean equals(Object o) {
     Node oNode = (Node) o;
-    return (this.x == oNode.getX() && this.y == oNode.getY());
+    return (this.pos.getX() == oNode.getX() && this.pos.getY() == oNode.getY());
   }
 
   public Node getPrevious() {
@@ -103,19 +113,19 @@ public class Node {
   }
 
   public int getX() {
-    return this.x;
+    return this.pos.getX();
   }
 
   public void setX(int x) {
-    this.x = x;
+    this.pos.setX(x);
   }
 
   public int getY() {
-    return this.y;
+    return this.pos.getY();
   }
 
   public void setY(int y) {
-    this.y = y;
+    this.pos.setY(y);
   }
 
   public String getStatus() {
