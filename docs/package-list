@@ -2,10 +2,10 @@
 algorithms.optimization.simplex
 algorithms.optimization.simplex.impl
 algorithms.random
-algorithms.random.listshuffle
 algorithms.search
 algorithms.sequence
 algorithms.sort
+algorithms.string
 datastructures.heap
 datastructures.list
 datastructures.math
@@ -17,6 +17,5 @@ problems.checkSubTree.impl
 problems.checkSubTree.resources
 problems.coinsamount
 problems.coinsamount.impl
-problems.disctinctString
 problems.distinctString
 problems.distinctString.impl
