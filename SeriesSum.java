@@ -15,5 +15,5 @@ public class SeriesSum
  		c+=2;
    }
 
-   cout<<" Sum of the series :"<<sum;
+  System.out.print(" Sum of the series : " +sum);
    }
