@@ -21,21 +21,19 @@ public class MergeSort {
    * @return the array sorted
    */
   public static <T extends Comparable<T>> T[] mergeSort(T[] array) {
-    if ( array.length <= 1 ){
+    if (array.length <= 1) {
       return array;
     }
-    T[] left =  Arrays.copyOfRange(array,0,array.length/2);
-    T[] right = Arrays.copyOfRange(array,array.length,array.length/2);;
+    T[] left =  Arrays.copyOfRange(array, 0, array.length / 2);
+    T[] right = Arrays.copyOfRange(array, array.length / 2, array.length / 2);
 
     left = mergeSort(left);
     right = mergeSort(right);
 
-    return merge(left, right);
+    return merge(array, left, right);
   }
 
-  public static <T extends Comparable<T>> T[] merge(T[] left, T[] right) {
-
-    Object[] result = new Object[left.length + right.length];
+  public static <T extends Comparable<T>> T[] merge(T[] array, T[] left, T[] right) {
 
     int lIndex = 0;
     int rIndex = 0;
@@ -43,22 +41,22 @@ public class MergeSort {
 
     while (lIndex < left.length && rIndex < right.length) {
       if (left[lIndex].compareTo(right[rIndex]) > 0) {
-        result[resIndex++] = right[rIndex++];
+        array[resIndex++] = right[rIndex++];
       } else {
-        result[resIndex++] = left[lIndex++];
+        array[resIndex++] = left[lIndex++];
       }
     }
 
     if (lIndex < left.length) {
       while (lIndex < left.length) {
-        result[resIndex++] = left[lIndex++];
+        array[resIndex++] = left[lIndex++];
       }
     } else {
       while (rIndex < right.length) {
-        result[resIndex++] = right[rIndex++];
+        array[resIndex++] = right[rIndex++];
       }
     }
 
-    return (T[]) result;
+    return array;
   }
 }
