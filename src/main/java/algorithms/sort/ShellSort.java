@@ -20,7 +20,7 @@ public class ShellSort {
     int len = input.length;
     T temp;
 
-    for (int outer = len/2; outer > 0; outer /= 2) {
+    for (int outer = len / 2; outer > 0; outer /= 2) {
       for (int i = outer; i < len; i++) {
         temp = input[i];
 
