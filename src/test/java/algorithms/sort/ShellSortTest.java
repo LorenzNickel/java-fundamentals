@@ -22,7 +22,7 @@ public class ShellSortTest extends TestCase {
   }
 
   public void testShellSortString() {
-  	String[] array = new String[]{"e", "d", "c", "b", "a"};
+    String[] array = new String[]{"e", "d", "c", "b", "a"};
 
     ShellSort.shellSort(array);
 
