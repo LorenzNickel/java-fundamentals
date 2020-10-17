@@ -16,9 +16,21 @@ public class ShellSort {
    * @param <T>
    * @param input
    */
-  public static <T extends Comparable<T>> void shellSort(T[] input) {
+  public static <T extends Comparable<T>> T[] shellSort(T[] input) {
     int len = input.length;
     T temp;
+
+    if (len == 0 || len == 1) {
+      return input;
+    }
+    else if (len == 2) {
+      for (int i = 0; i < len; i++) {
+        T t = input[i];
+        input[i] = input[len - 1];
+        input[len - 1] = t;
+      }
+      return input;
+    }
 
     for (int outer = len / 2; outer > 0; outer /= 2) {
       for (int i = outer; i < len; i++) {
@@ -32,6 +44,7 @@ public class ShellSort {
         input[j] = temp;
       }
     }
+    return input;
   }
 
 }
