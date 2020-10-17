@@ -28,5 +28,12 @@ public class CocktailSortTest extends TestCase {
   public void testCocktailSortEdgeCases() {
     final Integer[] array1 = {1};
     final Integer[] array2 = new Integer[0];
+
+    CocktailSort.sort(array1);
+
+    CocktailSort.sort(array2);
+
+    assertArrayEquals(new Integer[] {1}, array1);
+    assertArrayEquals(new Integer[] {}, array2);
   }
 }
