@@ -22,8 +22,7 @@ public class ShellSort {
 
     if (len == 0 || len == 1) {
       return input;
-    }
-    else if (len == 2) {
+    } else if (len == 2) {
       for (int i = 0; i < len; i++) {
         T t = input[i];
         input[i] = input[len - 1];
