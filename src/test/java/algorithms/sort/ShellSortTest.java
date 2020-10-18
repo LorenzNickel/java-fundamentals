@@ -45,7 +45,7 @@ public class ShellSortTest extends TestCase {
 
     ShellSort.shellSort(array);
 
-    assertEquals(array[0], 1);
+    assertEquals(1, (short) array[0]);
   }
 
   public void testShellSortTwoElement() {
@@ -53,7 +53,7 @@ public class ShellSortTest extends TestCase {
 
     ShellSort.shellSort(array);
 
-    assertEquals(array[0], 1);
+    assertEquals(1, (short) array[0]);
   }
 
   public void testShellSortTwoElementSorted() {
@@ -61,7 +61,7 @@ public class ShellSortTest extends TestCase {
 
     ShellSort.shellSort(array);
 
-    assertEquals(array[0], 1);
+    assertEquals(1, (short) array[0]);
   }
 
 }
