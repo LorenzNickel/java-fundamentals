@@ -11,7 +11,7 @@ import java.util.Random;
 import java.util.Set;
 
 /**
- * This clas is an implementation of the A* Algorithm which is an extension of the Dijkstra Algorithm. A* finds the
+ * This class is an implementation of the A* Algorithm which is an extension of the Dijkstra Algorithm. A* finds the
  * short path between two nodes in a graph. In contrast to the Dijkstra Algorithm, it has an additonal cost to
  * calculate: the H Cost, a heuristic which is the distance between the current node and the destination node in this
  * example. For more information: https://en.wikipedia.org/wiki/A*_search_algorithm
