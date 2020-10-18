@@ -32,4 +32,36 @@ public class ShellSortTest extends TestCase {
     }
   }
 
+  public void testShellSortEmpty() {
+    Short[] array = new Short[]{};
+
+    ShellSort.shellSort(array);
+
+    assertEquals(array.length, 0);
+  }
+
+  public void testShellSortOneElement() {
+    Short[] array = new Short[]{1};
+
+    ShellSort.shellSort(array);
+
+    assertEquals(array[0], (short) 1);
+  }
+
+  public void testShellSortTwoElement() {
+    Short[] array = new Short[]{2, 1};
+
+    ShellSort.shellSort(array);
+
+    assertEquals(array[0], (short) 1);
+  }
+
+  public void testShellSortTwoElementSorted() {
+    Short[] array = new Short[]{1, 2};
+
+    ShellSort.shellSort(array);
+
+    assertEquals(array[0], (short) 1);
+  }
+
 }
