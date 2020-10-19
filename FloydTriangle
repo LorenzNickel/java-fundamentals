@@ -1,0 +1,30 @@
+import java.util.Scanner;
+class Triangle
+{
+    public static void main(String args[])
+    {
+       int r, n = 1, count, j;
+       
+       Scanner input = new Scanner(System.in);   //To get the user's input
+       
+       System.out.println("Enter the number of rows for floyd's triangle:");   
+       
+       r = input.nextInt();        //Copying user input for number of rows into an integer variable named r
+       
+       System.out.println("Floyd's triangle :-");
+       
+       System.out.println("****************");
+       
+       for ( count = 1 ; count <= r ; count++ )
+       {
+           for ( j = 1 ; j <= count ; j++ )
+           {
+                System.out.print(n+" ");    
+               
+                n++;  //Incrementing the n value
+           }
+          
+           System.out.println();   //For new line
+       }
+   }
+}
