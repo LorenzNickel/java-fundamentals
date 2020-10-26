@@ -6,19 +6,19 @@ package pattern.adapter;
 
 public class Adapter implements ClientInterface {
 
-    ServiceInterface service;
+  ServiceInterface service;
 
-    public Adapter(ServiceInterface service) {
-        this.service = service;
-    }
+  public Adapter(ServiceInterface service) {
+    this.service = service;
+  }
 
-    @Override
-    public String clientRequest() {
-        return service.serviceRequest();
-    }
+  @Override
+  public String clientRequest() {
+    return service.serviceRequest();
+  }
 
-    @Override
-    public String clientMethod() {
-        return service.serviceMethod();
-    }
+  @Override
+  public String clientMethod() {
+    return service.serviceMethod();
+  }
 }

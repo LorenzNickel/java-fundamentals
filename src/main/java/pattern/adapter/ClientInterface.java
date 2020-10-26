@@ -5,6 +5,7 @@ package pattern.adapter;
  */
 
 public interface ClientInterface {
-    public String  clientRequest();
-    public String clientMethod();
+  public String  clientRequest();
+  
+  public String clientMethod();
 }

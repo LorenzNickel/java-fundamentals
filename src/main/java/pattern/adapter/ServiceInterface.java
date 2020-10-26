@@ -5,6 +5,7 @@ package pattern.adapter;
  */
 
 public interface ServiceInterface {
-    public String serviceRequest();
-    public String serviceMethod();
+  public String serviceRequest();
+
+  public String serviceMethod();
 }
