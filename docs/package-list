@@ -1,8 +1,11 @@
-
+algorithms.encryption
+algorithms.math
 algorithms.optimization.simplex
 algorithms.optimization.simplex.impl
 algorithms.random
 algorithms.search
+algorithms.search.astar
+algorithms.search.astar.model
 algorithms.sequence
 algorithms.sort
 algorithms.string
@@ -19,3 +22,5 @@ problems.coinsamount
 problems.coinsamount.impl
 problems.distinctString
 problems.distinctString.impl
+problems.romanNumeralConverter
+problems.romanNumeralConverter.impl
