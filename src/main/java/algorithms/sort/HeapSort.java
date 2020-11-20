@@ -1,5 +1,9 @@
 package algorithms.sort;
 
+/*
+*  Author: iamvs-2002
+*/
+
 static void heapify(int[] array, int length, int i) {
     int leftChild = 2*i+1;
     int rightChild = 2*i+2;
