@@ -1,47 +1,59 @@
 package algorithms.sort;
+import java.util.*;
 
 /*
 *  Author: iamvs-2002
 */
 
-static void heapify(int[] array, int length, int i) {
-    int leftChild = 2*i+1;
-    int rightChild = 2*i+2;
-    int largest = i;
+public class HeapSort{
+    public static void main(String a[]){
+        int i;
+        int arr[] = {1,3,4,5,2};
 
-    // if the left child is larger than parent
-    if (leftChild < length && array[leftChild] > array[largest]) {
-        largest = leftChild;
+        System.out.println("\nUnsorted Array");
+        for (i = 0; i < arr.length; i++)
+            System.out.print(" "+arr[i]);
+        for(i=arr.length; i>1; i--)
+            fnSortHeap(arr, i - 1);
+        
+        System.out.println("\n\nSorted array");
+        for (i = 0; i < arr.length; i++)
+            System.out.print(" "+arr[i]);
     }
 
-    // if the right child is larger than parent
-    if (rightChild < length && array[rightChild] > array[largest]) {
-        largest = rightChild;
+    public static void fnSortHeap(int array[], int arr_ubound){
+    int i, o;
+    int lChild, rChild, mChild, root, temp;
+    root = (arr_ubound-1)/2;
+
+    for(o = root; o >= 0; o--){
+        for(i=root;i>=0;i--){
+            lChild = (2*i)+1;
+            rChild = (2*i)+2;
+
+            if((lChild <= arr_ubound) && (rChild <= arr_ubound)){
+                if(array[rChild] >= array[lChild])
+                    mChild = rChild;
+                else
+                    mChild = lChild;
+            }
+            else{
+                if(rChild > arr_ubound)
+                    mChild = lChild;
+                else
+                    mChild = rChild;
+            }
+
+            if(array[i] < array[mChild]){
+                temp = array[i];
+                array[i] = array[mChild];
+                array[mChild] = temp;
+            }
+        }
     }
-
-    // if a swap needs to occur
-    if (largest != i) {
-        int temp = array[i];
-        array[i] = array[largest];
-        array[largest] = temp;
-        heapify(array, length, largest);
-    }
-}
-
-public static void heapSort(int[] array) {
-    if (array.length == 0) return;
-
-    // Building the heap
-    int length = array.length;
-    // we're going from the first non-leaf to the root
-    for (int i = length / 2-1; i >= 0; i--)
-        heapify(array, length, i);
-
-    for (int i = length-1; i >= 0; i--) {
-        int temp = array[0];
-        array[0] = array[i];
-        array[i] = temp;
-
-        heapify(array, i, 0);
+    temp = array[0];
+    array[0] = array[arr_ubound];
+    array[arr_ubound] = temp;
+    return;
     }
 }
