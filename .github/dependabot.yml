@@ -1,0 +1,15 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "18:00"
+    timezone: Europe/Berlin
+  open-pull-requests-limit: 10
+  reviewers:
+  - LorenzNickel
+  assignees:
+  - LorenzNickel
+  labels:
+  - dependency
